@@ -9,6 +9,9 @@ namespace BoardGameGallery.Controllers
 {
     public class BoardGameController : Controller
     {
-        
+        public string Detail()
+        {
+            return "Hello from the board games controller!";
+        }
     }
 }
