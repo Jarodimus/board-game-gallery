@@ -9,9 +9,13 @@ namespace BoardGameGallery.Controllers
 {
     public class BoardGameController : Controller
     {
-        public string Detail()
+        public ActionResult Detail()
         {
-            return "Hello from the board games controller!";
+            if(DateTime.Today.DayOfWeek == DayOfWeek.Friday)
+            {
+                return Redirect("/");
+            }
+            return Content("Hello form board games controller!");
         }
     }
 }
