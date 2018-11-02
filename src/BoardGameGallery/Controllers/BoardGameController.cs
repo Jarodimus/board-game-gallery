@@ -11,11 +11,7 @@ namespace BoardGameGallery.Controllers
     {
         public ActionResult Detail()
         {
-            if(DateTime.Today.DayOfWeek == DayOfWeek.Friday)
-            {
-                return Redirect("/");
-            }
-            return Content("Hello form board games controller!");
+            return View();
         }
     }
 }
