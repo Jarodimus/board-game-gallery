@@ -20,5 +20,27 @@ namespace BoardGameGallery.Models
         public Category[] Categories { get; set; }
         public Category[] SubCategories { get; set; }
         public bool Wishlisted { get; set; }
+        public bool NewArrival { get; set; }
+        public string TitleText
+        {
+            get
+            {
+                if (NewArrival)
+                {
+                    return Title + " (New Arrival)";
+                }
+                else
+                {
+                    return Title;
+                }
+            }
+        }
+        public string BigImage
+        {
+            get
+            {
+                return Title.ToLower().Replace(" ", "-") + ".jpg";
+            }
+        }
     }
 }
