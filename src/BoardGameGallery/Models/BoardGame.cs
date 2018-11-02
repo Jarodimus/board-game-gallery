@@ -10,7 +10,7 @@ namespace BoardGameGallery.Models
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public int ProductNumber { get; set; }
+        public string ProductNumber { get; set; }
         public double RegPrice { get; set; }
         public double SpecialPrice { get; set; }
         public string Manufacturer { get; set; }
