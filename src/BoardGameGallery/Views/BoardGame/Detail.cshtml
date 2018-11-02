@@ -4,8 +4,8 @@
     var gameTitle = "Arkham Horror 3rd Edition";
     var productNumber = "#FFGAHB01";
     var description = "<p>Massachusetts. 1926. Too long has the city of Arkham lived on its placid island of ignorance in the midst of the black seas of infinity. Only a small handful of unlucky investigators dare plunge into that abyss to struggle against the ancient evils that threaten reality from every corner of this New England town.</p><p>Arkham Horror is a cooperative game of mystery and terror for up to six players.Inspired by the writings of H.P.Lovecraft, each unique scenario puts you in the shoes of one of Arkham's investigators as they explore the streets of the city and work together to save humanity from unknowable horrors.</p>";
-    string[] contents = { "5 Map Tiles", "7 Streets", "12 Investigators", "4 Scenarios", "469 Cards", "1 Deck Holder", "6 Dice", "265 Tokens" };
-
+    //string[] contents = { "5 Map Tiles", "7 Streets", "12 Investigators", "4 Scenarios", "469 Cards", "1 Deck Holder", "6 Dice", "265 Tokens" };
+    string[] contents = { };
 }
 
 <!DOCTYPE html>
@@ -21,12 +21,18 @@
         <b>Product Number:</b> @productNumber<br />
         <div><b>Description:</b> @Html.Raw(@description)</div>
         <br />
-        <ul>
-            @foreach (var s in contents)
-            {
-                <li>@s</li>
-            }
-        </ul>
+        @if (contents.Length > 0)
+        {
+            <h3>Contents:</h3>
+            <ul>
+
+                @foreach (var s in contents)
+                {
+                    <li>@s</li>
+                }
+            </ul>
+        }
+
 
     </div>
 </body>
