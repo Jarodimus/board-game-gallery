@@ -1,33 +1,19 @@
 ﻿@{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>@ViewBag.GameTitle</h1>
+<b>Product Number:</b> @ViewBag.ProductNumber<br />
+<div><b>Description:</b> @Html.Raw(@ViewBag.Description)</div>
+<br />
+@if (ViewBag.Contents.Length > 0)
+{
+    <h3>Contents:</h3>
+    <ul>
+
+        @foreach (var s in ViewBag.Contents)
+        {
+            <li>@s</li>
+        }
+    </ul>
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-        <h1>@ViewBag.GameTitle</h1>
-        <b>Product Number:</b> @ViewBag.ProductNumber<br />
-        <div><b>Description:</b> @Html.Raw(@ViewBag.Description)</div>
-        <br />
-        @if (ViewBag.Contents.Length > 0)
-        {
-            <h3>Contents:</h3>
-            <ul>
-
-                @foreach (var s in ViewBag.Contents)
-                {
-                    <li>@s</li>
-                }
-            </ul>
-        }
-
-
-    </div>
-</body>
-</html>
