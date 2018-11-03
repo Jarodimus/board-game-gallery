@@ -2,23 +2,58 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = Model.Title;
 }
-<h1>@Model.TitleText</h1>
-<img class="big_image" src="~/Images/@Model.BigImage" />
-<section id="details">
-    <b>Product Number:</b> @Model.ProductNumber<br />
-    <div><b>Description:</b> @Html.Raw(@Model.DescriptionHtml)</div>
-</section>
-<br />
-@if (Model.Contents.Length > 0)
-{
-    <h3>Contents:</h3>
-    <ul>
 
-        @foreach (var s in Model.Contents)
-        {
-            <li>@s</li>
-        }
-    </ul>
-}
+<h2>@Model.TitleText</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <img src="~/Images/@Model.ImageName"
+             alt="@Model.Title" class="big_image img-responsive" />
+    </div>
+    <div class="col-md-6">
+        <div class="well">
+            <h5><label><b>Product Number:</b></label> @Model.ProductNumber</h5>
+            <h5><label><b>Regular Price:</b></label><span class="regular_price"> @String.Format("{0:C}", Model.RegPrice)</span></h5>
+            <h5><label><b>Special Price:</b></label> @String.Format("{0:C}", Model.SpecialPrice)</h5>
+            <h5><label><b>Wishlisted:</b></label> @(Model.Wishlisted ? "Yes" : "No")</h5>
+            @if (Model.Contents.Length > 0)
+            {
+                <h5><b>Contents:</b></h5>
+                <div>
+                    <ul>
+                        @foreach (var item in Model.Contents)
+                        {
+                            <li>@item</li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+        <h5>Description:</h5>
+        <div>@Html.Raw(Model.DescriptionHtml)</div>
+    </div>
+</div>
+
+
+@*
+    <h1>@Model.TitleText</h1>
+    <img class="big_image" src="~/Images/@Model.BigImage" />
+    <section id="details">
+        <b>Product Number:</b> @Model.ProductNumber<br />
+        <div><b>Description:</b> @Html.Raw(@Model.DescriptionHtml)</div>
+    </section>
+    <br />
+    @if (Model.Contents.Length > 0)
+    {
+        <h3>Contents:</h3>
+        <ul>
+
+            @foreach (var s in Model.Contents)
+            {
+                <li>@s</li>
+            }
+        </ul>
+    }*@
 

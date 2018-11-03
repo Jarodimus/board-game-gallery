@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace BoardGameGallery.Models
+﻿namespace BoardGameGallery.Models
 {
     public class BoardGame
     {
@@ -9,6 +7,7 @@ namespace BoardGameGallery.Models
         public string ProductNumber { get; set; }
         public double RegPrice { get; set; }
         public double SpecialPrice { get; set; }
+        public string ImageName { get; set; }
         public Manufacturer Manufacturer { get; set; }
         public string DescriptionHtml { get; set; }
         public string[] Contents { get; set; }
@@ -30,26 +29,6 @@ namespace BoardGameGallery.Models
                     return Title;
                 }
             }
-        }
-        public string BigImage
-        {
-            get
-            {
-                return getBgImageFile() + "b.jpg";
-            }
-        }
-
-        private string getBgImageFile()
-        {
-            var titleLower = Title.ToLower();
-            StringBuilder sb = new StringBuilder();
-            sb.Append(Manufacturer.Abbrev);
-            string[] split = titleLower.Split(' ');
-            for(int i = 0; i < split.Length; i++)
-            {
-                sb.Append(split[i][0]);
-            }
-            return sb.ToString();
         }
     }
 }
