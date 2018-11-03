@@ -10,8 +10,10 @@
     @foreach (var boardGame in Model)
     {
         <div class="col-md-3">
-            <h4><a href="/BoardGame/Detail/@boardGame.Id">@boardGame.Title</a></h4>
-            <a href="/BoardGame/Detail/@boardGame.Id">
+            <h4>
+                @Html.ActionLink(boardGame.Title, "Detail", new { id = boardGame.Id })
+            </h4>
+            <a href="@Url.Action("Detail", new { id = boardGame.Id })">
                 <img src="/Images/@boardGame.ImageName"
                      alt="@boardGame.Title"
                      class="img-responsive" />
