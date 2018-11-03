@@ -12,9 +12,17 @@ namespace BoardGameGallery.Controllers
             _boardGameRepository = new BoardGameRepository();
         }
 
-        public ActionResult Detail(int id)
+        public ActionResult Detail(int? id)
         {
-            var boardGame = _boardGameRepository.GetBoardGame(id);
+            if(id == null)
+            {
+                return HttpNotFound();
+            }
+            var boardGame = _boardGameRepository.GetBoardGame((int)id);
+            if(boardGame == null)
+            {
+                return HttpNotFound();
+            }
             return View(boardGame);
         }
     }
