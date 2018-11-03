@@ -25,6 +25,12 @@ namespace BoardGameGallery.Controllers
             }
             return View(boardGame);
         }
+
+        public ActionResult Index()
+        {
+            var boardGames = _boardGameRepository.GetBoardGames();
+            return View(boardGames);
+        }
     }
 }
 
