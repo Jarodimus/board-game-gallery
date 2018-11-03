@@ -84,5 +84,10 @@ namespace BoardGameGallery.Data
             }
             return _foundGame;
         }
+
+        public BoardGame[] GetBoardGames()
+        {
+            return _boardGames;
+        }
     }
 }
