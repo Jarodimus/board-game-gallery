@@ -93,7 +93,11 @@
     <Content Include="Content\site.css" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\aazb.jpg" />
     <Content Include="Images\ffgah3eb.jpg" />
+    <Content Include="Images\ffgdlub.jpg" />
+    <Content Include="Images\ffgmom2eb.jpg" />
+    <Content Include="Images\phgm&amp;mb.jpg" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -104,6 +108,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BoardGameController.cs" />
+    <Compile Include="Data\BoardGameRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
