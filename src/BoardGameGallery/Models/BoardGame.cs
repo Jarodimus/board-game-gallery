@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace BoardGameGallery.Models
 {
@@ -13,7 +9,7 @@ namespace BoardGameGallery.Models
         public string ProductNumber { get; set; }
         public double RegPrice { get; set; }
         public double SpecialPrice { get; set; }
-        public string Manufacturer { get; set; }
+        public Manufacturer Manufacturer { get; set; }
         public string DescriptionHtml { get; set; }
         public string[] Contents { get; set; }
         public Mechanic[] Mechanics { get; set; }
@@ -39,8 +35,21 @@ namespace BoardGameGallery.Models
         {
             get
             {
-                return Title.ToLower().Replace(" ", "-") + ".jpg";
+                return getBgImageFile() + "b.jpg";
             }
+        }
+
+        private string getBgImageFile()
+        {
+            var titleLower = Title.ToLower();
+            StringBuilder sb = new StringBuilder();
+            sb.Append(Manufacturer.Abbrev);
+            string[] split = titleLower.Split(' ');
+            for(int i = 0; i < split.Length; i++)
+            {
+                sb.Append(split[i][0]);
+            }
+            return sb.ToString();
         }
     }
 }

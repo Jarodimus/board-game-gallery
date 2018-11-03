@@ -1,9 +1,4 @@
 ﻿using BoardGameGallery.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace BoardGameGallery.Controllers
@@ -12,6 +7,11 @@ namespace BoardGameGallery.Controllers
     {
         public ActionResult Detail()
         {
+            Manufacturer ffg = new Manufacturer()
+            {
+                Name = "Fantasy Flight Games",
+                Abbrev = "ffg"
+            };
             var boardGame = new BoardGame()
             {
                 Id = 1,
@@ -27,8 +27,10 @@ namespace BoardGameGallery.Controllers
                 "1 Deck Holder",
                 "6 Dice",
                 "265 Tokens" },
+                NewArrival = true,
+                Manufacturer = ffg
             };
-            return View();
+            return View(boardGame);
         }
     }
 }

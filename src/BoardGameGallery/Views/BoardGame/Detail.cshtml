@@ -1,16 +1,21 @@
-﻿@{
+﻿@model BoardGameGallery.Models.BoardGame
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>@ViewBag.GameTitle</h1>
-<b>Product Number:</b> @ViewBag.ProductNumber<br />
-<div><b>Description:</b> @Html.Raw(@ViewBag.Description)</div>
+<h1>@Model.TitleText</h1>
+<img class="big_image" src="~/Images/@Model.BigImage" />
+<section id="details">
+    <b>Product Number:</b> @Model.ProductNumber<br />
+    <div><b>Description:</b> @Html.Raw(@Model.DescriptionHtml)</div>
+</section>
 <br />
-@if (ViewBag.Contents.Length > 0)
+@if (Model.Contents.Length > 0)
 {
     <h3>Contents:</h3>
     <ul>
 
-        @foreach (var s in ViewBag.Contents)
+        @foreach (var s in Model.Contents)
         {
             <li>@s</li>
         }
